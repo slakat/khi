@@ -29,8 +29,10 @@ app.run(function($location, $rootScope) {
   $rootScope.$on('$viewContentLoaded', function() {
      $rootScope.$watch(function() { return $location.search() }, function(search) {
        var scrollPos = 0 
-       if (search.hasOwnProperty('scroll')) {
-         var $target = $('#' + search.scroll);
+       var old =search;
+       $location.search('scroll',null);
+       if (old.hasOwnProperty('scroll')) {
+         var $target = $('#' + old.scroll);
          var scrollPos = $target.offset().top;
        }
        $("body,html").animate({scrollTop: scrollPos}, "slow");
@@ -38,6 +40,20 @@ app.run(function($location, $rootScope) {
      });  
    });    
  })
+
+app.directive('scrollToItem', function() {                                                      
+    return {                                                                                 
+        restrict: 'A',                                                                       
+        scope: {                                                                             
+            scrollTo: "@"                                                                    
+        },                                                                                   
+        link: function(scope, $elm,attr) {                                                   
+
+            $elm.on('click', function() {                                                    
+                $('html,body').animate({scrollTop: $(scope.scrollTo).offset().top }, "slow");
+            });                                                                              
+        }                                                                                    
+    }}) 
 
 app.controller('MainCtrl', function($scope) {
   $scope.items = [];
