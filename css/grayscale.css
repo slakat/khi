@@ -43,8 +43,9 @@ p {
     }
 }
 
+
 a {
-    color: #219ab3;
+    color: #eee; /*F26921; /* #219ab3 */
     -webkit-transition: all .2s ease-in-out;
     -moz-transition: all .2s ease-in-out;
     transition: all .2s ease-in-out;
@@ -53,7 +54,7 @@ a {
 a:hover,
 a:focus {
     text-decoration: none;
-    color: #11505d;
+    color: white;
 }
 
 .light {
@@ -137,7 +138,7 @@ a:focus {
     width: 100%;
     height: auto;
     padding: 100px 0;
-    top:50px;
+    top:-100px;
     text-align: center;
     color: #fff;
     /*background: url(../img/intro-bg.jpg) no-repeat bottom center scroll;
@@ -155,16 +156,18 @@ a:focus {
 
 .intro .intro-body .brand-heading {
     font-size: 40px;
+    color: white;
 }
 
 .intro .intro-body .intro-text {
     font-size: 18px;
+    color: white;
+    background: rgba(244, 85, 55, .1);
 }
 
 @media(min-width:767px) {
     .intro {
         height: 100%;
-        padding: 0;
     }
 
     .intro .intro-body .brand-heading {
@@ -172,7 +175,7 @@ a:focus {
     }
 
     .intro .intro-body .intro-text {
-        font-size: 25px;
+        font-size: 22px;
     }
 }
 
@@ -252,6 +255,7 @@ a:focus {
 
 .content-section {
     padding-top: 100px;
+    width: 100%;
 }
 
 .download-section {
@@ -274,7 +278,7 @@ a:focus {
 
 @media(min-width:767px) {
     .content-section {
-        padding-top: 250px;
+        /*padding-top: 200px;*/
     }
 
     .download-section {
@@ -298,7 +302,7 @@ a:focus {
 
 .btn-default {
     border: 1px solid #219ab3;
-    color: #219ab3;
+    color: #AA3E0E;
     background-color: transparent;
 }
 
