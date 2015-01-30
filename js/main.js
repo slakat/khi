@@ -19,8 +19,6 @@ app.config(['$routeProvider', function ($routeProvider) {
     // Home
     .when("/", {templateUrl: "partials/home.html", controller: "MainCtrl"})
     // Pages
-    .when("/about", {templateUrl: "partials/about.html", controller: "PageCtrl"})
-    .when("/faq", {templateUrl: "partials/faq.html", controller: "PageCtrl"})
     // else 404
     .otherwise("/404", {templateUrl: "partials/404.html", controller: "PageCtrl"});
 }]);
@@ -38,7 +36,7 @@ app.run(function($location, $rootScope) {
        $("body,html").animate({scrollTop: scrollPos}, "slow");
 
      });  
-   });    
+   });   
  })
 
 app.directive('scrollToItem', function() {                                                      
@@ -57,7 +55,13 @@ app.directive('scrollToItem', function() {
 
 app.controller('MainCtrl', function($scope) {
   $scope.items = [];
-  for (var i=0; i<100; i++) { $scope.items.push(i); }
+  for (var i=0; i<100; i++) { $scope.items.push(i); };  
+  this.partialId="home_en";
+
+  this.getPartialUrl = function() {
+        return 'partials/'+this.partialId+'.html';
+      };
+
 });
 
 /**
